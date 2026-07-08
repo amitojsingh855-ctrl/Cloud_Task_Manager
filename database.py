@@ -9,10 +9,15 @@ from sqlalchemy.orm import declarative_base
 
 # copy this from neon and replace the username , password , and host with your own credentials 
 
+# As per Day_2
+import os 
 
-DATABASE_URL='postgresql+psycopg2://neondb_owner:npg_dy5wRlcXq7ph@ep-snowy-block-aodturqy-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+from dotenv import load_dotenv
+load_dotenv()
+# import the function that can read a .env file , ie. open the .env file , and load all of its variables into the memory
+
 # here , we are connecting to a PostgreSQL database hosted on the cloud(neon)
-
+DATABASE_URL = os.getenv("DATABASE_URL")
 # note : click , "Show Password" and copy the complete connection string
 
 # create SQLAlchemy engine
